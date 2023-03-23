@@ -1,4 +1,4 @@
-# Recipe and Interactions
+# Predicting Ratings
 
 ### Problem Identification
 
