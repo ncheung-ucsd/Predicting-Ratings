@@ -1,4 +1,6 @@
-# Predicting Ratings
+# Predicting Ratings - Nathan Cheung
+
+Our exploratory data analysis on this dataset can be found [here](https://ncheung-ucsd.github.io/RecipesEDA/).
 
 ### Problem Identification
 
