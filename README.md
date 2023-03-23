@@ -4,7 +4,7 @@
 
 The prediction problem for this project was to predict the average rating, rounded to the nearest rating that a recipe would recive. This is a classification problem, specifically a Multi-class classifcation since there are more than two classes that a data point could be classified to: one of five ratings from 1-5.
 
-The response variable was the rounded average rating, and the data that was used to predict was: total fat (PDV), sugar (PDV), minutes, and review. We would have all this information during the time of prediction, because this model was built to be used to fill in missing average rounded ratings in a dataset similar to the one used above. Thus, all data would be available.
+The response variable was the rounded average rating, and the data that was used to predict was: total fat (PDV), sugar (PDV), minutes, and review. We would have all this information during the time of prediction, because this model was built to be used to fill in missing average rounded ratings in a dataset similar to the one used. Thus, all data necessary would be available.
 
 Accuracy was chosen over F1-score because precision was not any more or less important than recall, therefore the extra information gained by the F1-score was not important, since neither false positives nor false negatives are more important than the other. Accuracy was then chosen for its simplicity.
 
