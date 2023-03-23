@@ -26,7 +26,12 @@ The final model achieved a training accuracy of approximately 0.701, and a testi
 
 ### Fairness Analysis
 
-The first step taken was to left merge the two datasets together. This was done to explore potential relationships between the number of calories in a recipe and the ratings those recipes received. The next step was to fill all ratings of 0 with `np.nan`. This was done because zeroes in the dataset indicated that the values were missing, not that the user gave the recipe a rating of 0, since the lowest possible rating a user can give is 1. Thus, `np.nan` is a better representation of the value. The next step was to add the average rating per recipe back to `RAW_recipes`. This was to aggregate each pair of recipe and rating of a given recipe into one row, so that each recipe only had one row. The next step was splitting the `nutrition` column into
-One row for every recipe, merged has one row for every pair of recipe and rating for a recipe. This was done so that analysis can be done on the relationships between the number of calories and individual nutrients. The average ratings were also rounded, so that the rating could be represented as a categorical variable for each recipe, just as it appeared on the original `RAW_interactions.csv` dataset.
+The first group was recipes where the minutes were less than or equal to 120. The second group was recipes where the minutes were greater than 100. The evaluation metric that was chosen was accuracy. Below are the null and alternative hypotheses
 
-Below is the first few rows the dataframe. Note that the `tags`, `steps`, `description`, `ingredients`, `review` columns have been omitted because they were not used in the analysis and contained text that made the table format difficult to read.
+Null Hypothesis: Our model is fair. Its accuracy for recipes that take less than or equal to two hours and recipes that take more than an hour are roughly the same, and any differences are due to random chance.
+
+Alternative Hypothesis: Our model is unfair. Its accuracy for recipes that take longer than two hours is lower than its accuracy for recipes that take less than or equal to two hours.
+
+The test statistic that was used was difference in accuracy, and the significance value that was used was 0.05.
+
+The permutation test generated a p-value of 0.0, which is below the cutoff of 0.05, thus we reject the null hypothesis that the model's accuracy for recipes that take less than or equal to two hours and recipes that take more than an hour are roughly the same, and any differences are due to random chance. This implies that the model is likely not fair.
